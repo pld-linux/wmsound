@@ -4,10 +4,9 @@ Summary(fr):	Serveur de son de Window Maker
 Summary(no):	Window Maker lydtjener.
 Summary(pl):	Serwer d¼wiêku dla WindowMaker'a
 Name:		wmsound
-Version:	0.9.1
-Release:	1d
+Version:	0.9.4
+Release:	1
 Copyright:	GPL
-Vendor:		Anthony Quinn <southgat@frontiernet.net>
 Group:		X11/Window Managers/Tools
 Group(pl):	X11/Zarz±dcy Okien/Narzêdzia
 Source0:	http://www.frontiernet.net/~southgat/wmsound/download/%{name}-%{version}.tar.gz
@@ -17,10 +16,7 @@ Patch:      	wmsound-config.patch
 Requires:   	WindowMaker
 Requires:   	libjpeg
 Requires:   	libpng
-Requires:   	XFree86-libs
-Requires:   	zlib
-Requires:   	xpm
-Buildroot:  	/tmp/%{name}-%{version}-%{release}-root
+Buildroot:  	/tmp/%{name}-%{version}-root
 
 %description
 Wmsound is the sound server for Window Maker, it currently supports 8 or 16
@@ -85,16 +81,17 @@ cd config
 tar xzf $RPM_SOURCE_DIR/wmsdefault.tar.gz
 
 %build
-# LDFLAGS="-s"\
-# CFLAGS="$RPM_OPT_FLAGS" \
-xmkmf
-make Makefiles
-make 
+xmkmf -a
+
+make all CDEBUGFLAGS="$RPM_OPT_FLAGS" \
+	CXXDEBUGFLAGS="$RPM_OPT_FLAGS" \
+	PREFIX=/usr/X11R6
 
 %install
 rm -rf $RPM_BUILD_ROOT
+
 ./Install
-make install DESTDIR=$RPM_BUILD_ROOT/usr
+make install DESTDIR="$RPM_BUILD_ROOT/usr/X11R6"
 install -d $RPM_BUILD_ROOT/usr/X11R6/share/WindowMaker/{Defaults,Sounds,SoundSets}
 install config/WMSound $RPM_BUILD_ROOT/usr/X11R6/share/WindowMaker/Defaults
 install $RPM_SOURCE_DIR/wmsound-soundset \
@@ -103,12 +100,16 @@ install config/Sounds/*.wav \
 	$RPM_BUILD_ROOT/usr/X11R6/share/WindowMaker/Sounds
 #strip $RPM_BUILD_ROOT/usr/X11R6/bin/*
 
+
+gzip -9nf AUTHORS COPYING ChangeLog NEWS
+
 %clean
 rm -rf $RPM_BUILD_ROOT
 
 %files
 %defattr(644,root,root,755)
-%doc AUTHORS COPYING ChangeLog NEWS
+%doc {AUTHORS,COPYING,ChangeLog,NEWS}.gz 
+%doc patches
 %attr(755,root,root) /usr/X11R6/bin/wmsound
 %attr(755,root,root) /usr/X11R6/bin/nmaker
 %attr(755,root,root) /usr/X11R6/bin/getsounds
@@ -124,28 +125,33 @@ rm -rf $RPM_BUILD_ROOT
 
 %files devel
 %defattr(644,root,root,755)
-/usr/include/*.h
-/usr/lib/*.a
+/usr/X11R6/include/*.h
+/usr/X11R6/lib/*.a
 
 %changelog
+* Thu Apr  1 1999 Piotr Czerwiñski <pius@pld.org.pl>
+  [0.9.4-1]
+- updated to 0.9.4,
+- changed BuildRoot to /tmp/%{name}-%{version}-root,
+- fixed passing $RPM_OPT_FLAGS,
+- fixed configuration files (wmsound-config.patch, wmsound-soundset),
+- added gzipping documentation,
+- major changes.
+
 * Fri Jan 22 1999 Artur Frysiak <wiget@usa.net>
   [0.9.0-1d]
 - added pl translation
 - rewrite spec file
 
 * Tue Nov 10 1998 Kjetil Wiekhorst Jørgensen <jorgens+rpm@pvv.org> [0.9.0-1]
-
 - upgraded to version 0.9.0
 - minor fixes to specfile
 
 * Sat Oct 24 1998 Kjetil Wiekhorst Jørgensen <jorgens+rpm@pvv.org> [0.8.0-1]
-
 - upgraded to version 0.8.0
 
 * Sun Oct 18 1998 Kjetil Wiekhorst Jørgensen <jorgens@pvv.org>
-
 - upgraded to version 0.7.6b
 
 * Thu Sep 10 1998 Kjetil Wiekhorst Jørgensen <jorgens@pvv.org>
-
 - initial version
