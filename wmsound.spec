@@ -84,8 +84,13 @@ Summary(no):	Utviklings bibliotek for Wmsound
 Summary(pl):	Pliki nagЁСwkowe dla Wmsounda
 Group:		X11/Development/Libraries
 Group(de):	X11/Entwicklung/Libraries
+Group(es):	X11/Desarrollo/Bibliotecas
+Group(fr):	X11/Development/Librairies
 Group(pl):	X11/Programowanie/Biblioteki
-Requires:	%{name} = %{version}
+Group(pt_BR):	X11/Desenvolvimento/Bibliotecas
+Group(ru):	X11/Разработка/Библиотеки
+Group(uk):	X11/Розробка/Б╕бл╕отеки
+Requires:	X11/%{name} = %{version}
 
 %description devel
 The Wmsound library and header file
