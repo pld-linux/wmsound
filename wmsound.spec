@@ -1,7 +1,7 @@
 # %define snddevice /dev/dsp
 Summary:	Window Maker sound server
 Summary(fr):	Serveur de son de Window Maker
-Summary(no):	Window Maker lydtjener
+Summary(nb):	Window Maker lydtjener
 Summary(pl):	Serwer d¼wiêku dla WindowMakera
 Summary(pt_BR):	Servidor de som do Window Maker
 Name:		wmsound
@@ -40,7 +40,7 @@ soporta archivos .wav de 8 ó 16 bits.
 Wmsound est le serveur de son pour Window Maker, il supporte
 actuellement les fichiers son .wav 8 ou 16 bit.
 
-%description -l no
+%description -l nb
 Wmsound er en lydtjener for Window Maker, som for øyeblikket støtter 8
 og 16 bit .wav filer.
 
@@ -55,7 +55,7 @@ arquivos .wav de 8 ou 16 bits.
 %package data
 Summary:	Wmsound data
 Summary(fr):	Données de Wmsound
-Summary(no):	Data til Wmsound
+Summary(nb):	Data til Wmsound
 Summary(pl):	Pliki z danymi dla Wmsound
 Group:		X11/Window Managers/Tools
 Requires:	wmsoundserver
@@ -70,7 +70,7 @@ Los datos predeterminados para wmsound.
 %description data -l fr
 Les données standard de Wmsound.
 
-%description data -l no
+%description data -l nb
 Standard datafiler til Wmsound.
 
 %description data -l pl
@@ -81,7 +81,7 @@ Os dados padrão para o wmsound.
 
 %package devel
 Summary:	Wmsound development option
-Summary(no):	Utviklings bibliotek for Wmsound
+Summary(nb):	Utviklings bibliotek for Wmsound
 Summary(pl):	Pliki nag³ówkowe dla Wmsounda
 Group:		X11/Development/Libraries
 
@@ -92,7 +92,7 @@ The Wmsound library and header file
 Bibliotecas y archivos de inclusión, para que puedas desarrollar
 aplicaciones que usen el servidor de sonido wmsound.
 
-%description devel -l no
+%description devel -l nb
 Wmsound biblioteket samt «headerfilen»
 
 %description devel -l pl
