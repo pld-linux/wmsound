@@ -6,7 +6,7 @@ Summary(pl):	Serwer d¼wiêku dla WindowMakera
 Summary(pt_BR):	Servidor de som do Window Maker
 Name:		wmsound
 Version:	0.9.5
-Release:	2
+Release:	3
 License:	GPL v2+
 Group:		X11/Window Managers/Tools
 Source0:	ftp://shadowmere.student.utwente.nl/pub/WindowMaker/%{name}-%{version}.tar.gz
@@ -124,7 +124,7 @@ xmkmf -a
 
 %install
 rm -rf $RPM_BUILD_ROOT
-install -d $RPM_BUILD_ROOT%{_datadir}/WindowMaker/{Sounds,SoundSets}
+install -d $RPM_BUILD_ROOT%{_datadir}/WindowMaker/{Sounds,SoundSets} \
 	$RPM_BUILD_ROOT%{_sysconfdir}/WindowMaker
 
 ./Install
