@@ -8,7 +8,7 @@
   Shade = shade.wav;
   Startup = appstart.wav;
   UnHide = unhide.wav;
-  DeIconify = uniconify.wav;
+  DeIconify = deiconify.wav;
   UnShade = unshade.wav;
   UserDefined = replaceme.wav;
 }
