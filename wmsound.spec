@@ -2,13 +2,12 @@
 Summary:	Window Maker sound server
 Summary(fr):	Serveur de son de Window Maker
 Summary(no):	Window Maker lydtjener
-Summary(pl):	Serwer d¼wiêku dla WindowMaker'a
+Summary(pl):	Serwer d¼wiêku dla WindowMakera
 Summary(pt_BR):	Servidor de som do Window Maker
-Summary(es):	Serveur de son de WindowMaker
 Name:		wmsound
-Version:	0.9.4
-Release:	4
-License:	GPL
+Version:	0.9.5
+Release:	1
+License:	GPL v2+
 Group:		X11/Window Managers/Tools
 Source0:	ftp://shadowmere.student.utwente.nl/pub/WindowMaker/%{name}-%{version}.tar.gz
 Source1:	wmsdefault.tar.gz
@@ -17,9 +16,10 @@ Patch0:		%{name}-config.patch
 Patch1:		%{name}-ComplexProgramTargetNoMan.patch
 # not active
 URL:		http://www.frontiernet.net/~southgat/wmsound/
-BuildRequires:	libPropList-devel >= 0.8.3
 BuildRequires:	XFree86-devel
+BuildRequires:	libPropList-devel >= 0.8.3
 Requires:	WindowMaker
+Provides:	wmsoundserver
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %define 	_prefix		/usr/X11R6
@@ -27,6 +27,10 @@ BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 %description
 Wmsound is the sound server for Window Maker, it currently supports 8
 or 16 bit .wav files.
+
+%description -l es
+wmsound es el servidor de sonido para Window Maker, actualmente
+soporta archivos .wav de 8 ó 16 bits.
 
 %description -l fr
 Wmsound est le serveur de son pour Window Maker, il supporte
@@ -44,20 +48,20 @@ pliki .wav w formacie 8 i 16 bitowym.
 O wmsound é o servidor de som para o Window Maker, atualmente suporta
 arquivos .wav de 8 ou 16 bits.
 
-%description -l es
-wmsound es el servidor de sonido para Window Maker, actualmente
-soporta archivos .wav de 8 ó 16 bits.
-
 %package data
 Summary:	Wmsound data
 Summary(fr):	Données de Wmsound
 Summary(no):	Data til Wmsound
 Summary(pl):	Pliki z danymi dla Wmsound
 Group:		X11/Window Managers/Tools
-Requires:	%{name} = %{version}
+Requires:	wmsoundserver
+Obsoletes:	WSoundServer-data
 
 %description data
 The standard Wmsound data.
+
+%description data -l es
+Los datos predeterminados para wmsound.
 
 %description data -l fr
 Les données standard de Wmsound.
@@ -71,18 +75,18 @@ Pliki z danymi dla Wmsound.
 %description data -l pt_BR
 Os dados padrão para o wmsound.
 
-%description data -l es
-Los datos predeterminados para wmsound.
-
 %package devel
 Summary:	Wmsound development option
 Summary(no):	Utviklings bibliotek for Wmsound
 Summary(pl):	Pliki nag³ówkowe dla Wmsounda
 Group:		X11/Development/Libraries
-Requires:	X11/%{name} = %{version}
 
 %description devel
 The Wmsound library and header file
+
+%description devel -l es
+Bibliotecas y archivos de inclusión, para que puedas desarrollar
+aplicaciones que usen el servidor de sonido wmsound.
 
 %description devel -l no
 Wmsound biblioteket samt «headerfilen»
@@ -92,10 +96,6 @@ Pliki nag³ówkowe i biblioteki dla Wmsounda.
 
 %description devel -l pt_BR
 Bibliotecas para construir aplicações com wmsound.
-
-%description devel -l es
-Bibliotecas y archivos de inclusión, para que puedas desarrollar
-aplicaciones que usen el servidor de sonido wmsound.
 
 %prep
 %setup -q
@@ -125,26 +125,24 @@ install config/WMSound $RPM_BUILD_ROOT%{_datadir}/WindowMaker/Defaults
 install %{SOURCE2} $RPM_BUILD_ROOT%{_datadir}/WindowMaker/SoundSets/Default
 install config/Sounds/*.wav $RPM_BUILD_ROOT%{_datadir}/WindowMaker/Sounds
 
-gzip -9nf AUTHORS COPYING ChangeLog NEWS
-
 %clean
 rm -rf $RPM_BUILD_ROOT
 
 %files
 %defattr(644,root,root,755)
-%doc *.gz
+%doc AUTHORS BUGS ChangeLog
 %attr(755,root,root) %{_bindir}/%{name}
 %attr(755,root,root) %{_bindir}/nmaker
 %attr(755,root,root) %{_bindir}/getsounds
 %attr(755,root,root) %{_bindir}/setsounds
+%config(noreplace) %verify(not size mtime md5) %{_datadir}/WindowMaker/Defaults/WMSound
 
 %files data
 %defattr(644,root,root,755)
 %dir %{_datadir}/WindowMaker/Sounds
 %dir %{_datadir}/WindowMaker/SoundSets
 %{_datadir}/WindowMaker/Sounds/*.wav
-%config %verify(not size mtime md5) %{_datadir}/WindowMaker/SoundSets/Default
-%config %verify(not size mtime md5) %{_datadir}/WindowMaker/Defaults/WMSound
+%config(noreplace) %verify(not size mtime md5) %{_datadir}/WindowMaker/SoundSets/Default
 
 %files devel
 %defattr(644,root,root,755)
