@@ -13,6 +13,7 @@ Source0:	http://www.frontiernet.net/~southgat/wmsound/download/%{name}-%{version
 Source1:	wmsdefault.tar.gz
 Source2:	wmsound-soundset
 Patch:      	wmsound-config.patch
+URL:		http://www.frontiernet.net/~southgat/wmsound/
 BuildPrereq:	libPropList-devel >= 0.8.3
 BuildPrereq:	XFree86-devel
 Requires:   	WindowMaker
