@@ -123,13 +123,13 @@ xmkmf -a
 
 %install
 rm -rf $RPM_BUILD_ROOT
-install -d $RPM_BUILD_ROOT%{_datadir}/WindowMaker/{Sounds,SoundSets}
-install -d $RPM_BUILD_ROOT%{_sysconfdir}/WindowMaker/WMSound
+install -d $RPM_BUILD_ROOT%{_datadir}/WindowMaker/{Sounds,SoundSets} \
+	$RPM_BUILD_ROOT%{_sysconfdir}/WindowMaker
 
 ./Install
 %{__make} install DESTDIR=$RPM_BUILD_ROOT%{_prefix}
 
-install config/WMSound $RPM_BUILD_ROOT%{_sysconfdir}/WindowMaker/WMSound
+install config/WMSound $RPM_BUILD_ROOT%{_sysconfdir}/WindowMaker
 install %{SOURCE2} $RPM_BUILD_ROOT%{_datadir}/WindowMaker/SoundSets/Default
 install config/Sounds/*.wav $RPM_BUILD_ROOT%{_datadir}/WindowMaker/Sounds
 
