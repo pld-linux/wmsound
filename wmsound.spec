@@ -127,10 +127,3 @@ rm -rf $RPM_BUILD_ROOT
 %defattr(644,root,root,755)
 %{_includedir}/*.h
 %{_libdir}/*.a
-
-%changelog
-* Thu May 20 1999 Piotr Czerwiñski <pius@pld.org.pl> 
-  [0.9.4-3]
-- package is FHS 2.0 compliant,
-- based on spec file written by Kjetil Wiekhorst Jørgensen <jorgens@pvv.org>,
-  rewritten for PLD use by me and Artur Frysiak <wiget@pld.org.pl>.
