@@ -1,26 +1,14 @@
-diff -ur wmsound-0.9.0/Imakefile wmsound-0.9.0-fixed/Imakefile
---- wmsound-0.9.0/Imakefile	Mon Nov  9 01:16:35 1998
-+++ wmsound-0.9.0-fixed/Imakefile	Wed Nov 11 00:07:46 1998
-@@ -1,7 +1,7 @@
- #define IHaveSubdirs
- #define PassCDebugFlags CDEBUGFLAGS="$(CDEBUGFLAGS)"
- 
--PREFIX = /usr/local
-+PREFIX = /usr
- 
- DESTDIR = $(PREFIX)
- 
-diff -ur wmsound-0.9.0/Install wmsound-0.9.0-fixed/Install
---- wmsound-0.9.0/Install	Sun Nov  8 21:48:13 1998
-+++ wmsound-0.9.0-fixed/Install	Wed Nov 11 00:18:13 1998
-@@ -7,62 +7,16 @@
+diff -urN wmsound-0.9.4.orig/Install wmsound-0.9.4/Install
+--- wmsound-0.9.4.orig/Install	Thu Mar 18 05:59:31 1999
++++ wmsound-0.9.4/Install	Thu Apr  1 16:43:54 1999
+@@ -7,61 +7,17 @@
  DEVICE="/dev/dsp"
  
  echo
 -echo "----------------------------"
 -echo " WMSound-$VERSION Installation "
 -echo "----------------------------"
-+echo "------------------------------"
++echo "-----------------------------"
 +echo " WMSound-$VERSION Configuration "
 +echo "-----------------------------"
  
@@ -41,20 +29,19 @@ diff -ur wmsound-0.9.0/Install wmsound-0.9.0-fixed/Install
 -done=0
 -while test $done = 0
 -do
--  echo "Specify your default audio device [$DEVICE]"
--  echo -n ":  "
+-  printf "Specify your default audio device [$DEVICE]: "
 -  read AUDIODEV
--  if !(test $AUDIODEV)
+-  if [ -z "$AUDIODEV" ]
 -  then
 -    AUDIODEV=$DEVICE
 -  fi
--  if test -e $AUDIODEV
+-  if test -w $AUDIODEV
 -  then
 -    echo "Using audio-device : $AUDIODEV"
 -    DEVICE=$AUDIODEV
 -    done=1
 -  else
--    echo "$AUDIODEV does not exist ..."
+-    echo "$AUDIODEV does not exist or is not writeable ..."
 -  fi
 -
 -done
@@ -74,45 +61,28 @@ diff -ur wmsound-0.9.0/Install wmsound-0.9.0-fixed/Install
  (echo "{";\
  echo "  SoundPath = (\"~/GNUstep/Library/WindowMaker/Sounds\",";\
 -echo "              \"/usr/local/share/WindowMaker/Sounds\");";\
-+echo "              \"/usr/X11R6/share/WindowMaker/Sounds\",";\
++echo "              \"/usr/X11R6/share/WindowMaker/Sounds\"),";\
 +echo "              \"/usr/audio\");";\
  echo "  SoundSetsPath = (\"~/GNUstep/Library/WindowMaker/SoundSets\",";\
 -echo "              \"/usr/local/share/WindowMaker/SoundSets\");";\
 +echo "              \"/usr/X11R6/share/WindowMaker/SoundSets\");";\
++
  echo "  Device = $DEVICE;";\
  echo "  AppExit = appexit.wav;";\
  echo "  AppStart = appstart.wav;";\
-@@ -76,10 +30,4 @@
- echo "  DeIconify = uniconify.wav;";\
+@@ -72,13 +28,8 @@
+ echo "  Shade = shade.wav;";\
+ echo "  Startup = startup.wav;";\
+ echo "  UnHide = unhide.wav;";\
+-echo "  DeIconify = uniconify.wav;";\
++echo "  DeIconify = deiconify.wav;";\
  echo "  UnShade = unshade.wav;";\
  echo "  UserDefined = replaceme.wav;";\
 -echo "}";) > WMSound
--
++echo "}";) > config/WMSound
+ 
 -echo "Make sure you copy the generated WMSound config to your Window Maker Global"
 -echo "Defaults path ... (probably /usr/local/share/WindowMaker/Defaults)"
 -echo
 -echo "Installation completed."
 -  
-+echo "}";) > config/WMSound
-diff -ur wmsound-0.9.0/src/Imakefile wmsound-0.9.0-fixed/src/Imakefile
---- wmsound-0.9.0/src/Imakefile	Mon Nov  9 01:25:01 1998
-+++ wmsound-0.9.0-fixed/src/Imakefile	Wed Nov 11 00:12:10 1998
-@@ -1,6 +1,6 @@
- CC = gcc
- 
--BINDIR = /bin
-+BINDIR = /X11R6/bin
- 
- XCOMM EFENCELIB = -lefence
- EFENCELIB = 
-diff -ur wmsound-0.9.0/utils/Imakefile wmsound-0.9.0-fixed/utils/Imakefile
---- wmsound-0.9.0/utils/Imakefile	Mon Nov  9 01:25:56 1998
-+++ wmsound-0.9.0-fixed/utils/Imakefile	Wed Nov 11 00:12:31 1998
-@@ -1,6 +1,6 @@
- CC = gcc
- 
--BINDIR = /bin
-+BINDIR = /X11R6/bin
- 
- XCOMM EFENCELIB = -lefence
- EFENCELIB = 
