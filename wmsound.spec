@@ -16,11 +16,14 @@ Source1:	wmsdefault.tar.gz
 Source2:	%{name}-soundset
 Patch0:		%{name}-config.patch
 Patch1:		%{name}-ComplexProgramTargetNoMan.patch
+Patch2:		%{name}-esd.patch
 # not active
 URL:		http://www.frontiernet.net/~southgat/wmsound/
 BuildRequires:	XFree86-devel
 BuildRequires:	libPropList-devel >= 0.8.3
+BuildRequires:	esound-devel
 Requires:	WindowMaker
+Requires:	esound
 Provides:	wmsoundserver
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
@@ -102,6 +105,7 @@ Bibliotecas para construir aplicações com wmsound.
 %setup -q
 %patch0 -p1
 %patch1 -p1
+%patch2 -p0
 
 mkdir config
 cd config
