@@ -16,6 +16,7 @@ Source0:	ftp://shadowmere.student.utwente.nl/pub/WindowMaker/%{name}-%{version}.
 Source1:	wmsdefault.tar.gz
 Source2:	%{name}-soundset
 Patch0:		%{name}-config.patch
+Patch1:		%{name}-ComplexProgramTargetNoMan.patch
 # not active
 URL:		http://www.frontiernet.net/~southgat/wmsound/
 BuildRequires:	libPropList-devel >= 0.8.3
@@ -104,7 +105,8 @@ aplicaciones que usen el servidor de sonido wmsound.
 
 %prep
 %setup -q
-%patch -p1
+%patch0 -p1
+%patch1 -p1
 
 mkdir config
 cd config
