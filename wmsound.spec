@@ -98,8 +98,6 @@ install $RPM_SOURCE_DIR/wmsound-soundset \
 	$RPM_BUILD_ROOT/usr/X11R6/share/WindowMaker/SoundSets/Default
 install config/Sounds/*.wav \
 	$RPM_BUILD_ROOT/usr/X11R6/share/WindowMaker/Sounds
-#strip $RPM_BUILD_ROOT/usr/X11R6/bin/*
-
 
 gzip -9nf AUTHORS COPYING ChangeLog NEWS
 
