@@ -24,7 +24,6 @@ Requires:	WindowMaker
 Provides:	wmsoundserver
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
-%define 	_prefix		/usr/X11R6
 
 %description
 Wmsound is the sound server for Window Maker, it currently supports 8
