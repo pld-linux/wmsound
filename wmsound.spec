@@ -30,27 +30,27 @@ BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
 Wmsound is the sound server for Window Maker, it currently supports 8
-or 16 bit .wav files.
+or 16 bit .WAV files.
 
 %description -l es
 wmsound es el servidor de sonido para Window Maker, actualmente
-soporta archivos .wav de 8 ó 16 bits.
+soporta archivos .WAV de 8 ó 16 bits.
 
 %description -l fr
 Wmsound est le serveur de son pour Window Maker, il supporte
-actuellement les fichiers son .wav 8 ou 16 bit.
+actuellement les fichiers son .WAV 8 ou 16 bit.
 
 %description -l nb
 Wmsound er en lydtjener for Window Maker, som for øyeblikket støtter 8
-og 16 bit .wav filer.
+og 16 bit .WAV filer.
 
 %description -l pl
 Wmsound jest serwerem d¼wiêku dla WindowMaker'a. Aktualnie obs³uguje
-pliki .wav w formacie 8 i 16 bitowym.
+pliki .WAV w formacie 8 i 16 bitowym.
 
 %description -l pt_BR
 O wmsound é o servidor de som para o Window Maker, atualmente suporta
-arquivos .wav de 8 ou 16 bits.
+arquivos .WAV de 8 ou 16 bits.
 
 %package data
 Summary:	Wmsound data
