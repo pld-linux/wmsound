@@ -19,7 +19,7 @@ BuildPrereq:	XFree86-devel
 Requires:   	WindowMaker
 Buildroot:  	/tmp/%{name}-%{version}-root
 
-%define _prefix         /usr/X11R6
+%define _prefix	/usr/X11R6
 
 %description
 Wmsound is the sound server for Window Maker, it currently supports 8 or 16
@@ -86,16 +86,18 @@ tar xzf %{SOURCE1}
 %build
 xmkmf -a
 
-make all CDEBUGFLAGS="$RPM_OPT_FLAGS -ffast-math" \
+make all \
+	CDEBUGFLAGS="$RPM_OPT_FLAGS -ffast-math" \
 	CXXDEBUGFLAGS="$RPM_OPT_FLAGS -ffast-math" \
 	PREFIX=%{_prefix}
 
 %install
 rm -rf $RPM_BUILD_ROOT
+install -d $RPM_BUILD_ROOT%{_datadir}/WindowMaker/{Defaults,Sounds,SoundSets}
 
 ./Install
 make install DESTDIR=$RPM_BUILD_ROOT%{_prefix}
-install -d $RPM_BUILD_ROOT%{_datadir}/WindowMaker/{Defaults,Sounds,SoundSets}
+
 install config/WMSound $RPM_BUILD_ROOT%{_datadir}/WindowMaker/Defaults
 install %{SOURCE2} $RPM_BUILD_ROOT%{_datadir}/WindowMaker/SoundSets/Default
 install config/Sounds/*.wav $RPM_BUILD_ROOT%{_datadir}/WindowMaker/Sounds
@@ -108,7 +110,6 @@ rm -rf $RPM_BUILD_ROOT
 %files
 %defattr(644,root,root,755)
 %doc {AUTHORS,COPYING,ChangeLog,NEWS}.gz 
-%doc patches
 %attr(755,root,root) %{_bindir}/%{name}
 %attr(755,root,root) %{_bindir}/nmaker
 %attr(755,root,root) %{_bindir}/getsounds
@@ -128,41 +129,8 @@ rm -rf $RPM_BUILD_ROOT
 %{_libdir}/*.a
 
 %changelog
-* Mon May 17 1999 Piotr Czerwiñski <pius@pld.org.pl>
+* Thu May 20 1999 Piotr Czerwiñski <pius@pld.org.pl> 
   [0.9.4-3]
-- added using more rpm macros,
-- minor changes,
-- package is FHS 2.0 compliant.
-
-* Tue Apr 20 1999 Piotr Czerwiñski <pius@pld.org.pl>
-  [0.9.4-2]
-- added -ffast-math to compiler options,
-- added BuildPrereq: libPropList-devel >= 0.8.3, XFree86-devel,
-- recompiled on rpm 3.
-
-* Thu Apr  1 1999 Piotr Czerwiñski <pius@pld.org.pl>
-  [0.9.4-1]
-- updated to 0.9.4,
-- changed BuildRoot to /tmp/%{name}-%{version}-root,
-- fixed passing $RPM_OPT_FLAGS,
-- fixed configuration files (wmsound-config.patch, wmsound-soundset),
-- added gzipping documentation,
-- major changes.
-
-* Fri Jan 22 1999 Artur Frysiak <wiget@usa.net>
-  [0.9.0-1d]
-- added pl translation
-- rewrite spec file
-
-* Tue Nov 10 1998 Kjetil Wiekhorst Jørgensen <jorgens+rpm@pvv.org> [0.9.0-1]
-- upgraded to version 0.9.0
-- minor fixes to specfile
-
-* Sat Oct 24 1998 Kjetil Wiekhorst Jørgensen <jorgens+rpm@pvv.org> [0.8.0-1]
-- upgraded to version 0.8.0
-
-* Sun Oct 18 1998 Kjetil Wiekhorst Jørgensen <jorgens@pvv.org>
-- upgraded to version 0.7.6b
-
-* Thu Sep 10 1998 Kjetil Wiekhorst Jørgensen <jorgens@pvv.org>
-- initial version
+- package is FHS 2.0 compliant,
+- based on spec file written by Kjetil Wiekhorst Jørgensen <jorgens@pvv.org>,
+  rewritten for PLD use by me and Artur Frysiak <wiget@pld.org.pl>.
