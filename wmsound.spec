@@ -10,8 +10,6 @@ Version:	0.9.4
 Release:	4
 License:	GPL
 Group:		X11/Window Managers/Tools
-Group(de):	X11/Fenstermanager/Werkzeuge
-Group(pl):	X11/Zarz±dcy Okien/Narzêdzia
 Source0:	ftp://shadowmere.student.utwente.nl/pub/WindowMaker/%{name}-%{version}.tar.gz
 Source1:	wmsdefault.tar.gz
 Source2:	%{name}-soundset
@@ -56,8 +54,6 @@ Summary(fr):	Données de Wmsound
 Summary(no):	Data til Wmsound
 Summary(pl):	Pliki z danymi dla Wmsound
 Group:		X11/Window Managers/Tools
-Group(de):	X11/Fenstermanager/Werkzeuge
-Group(pl):	X11/Zarz±dcy Okien/Narzêdzia
 Requires:	%{name} = %{version}
 
 %description data
@@ -83,13 +79,6 @@ Summary:	Wmsound development option
 Summary(no):	Utviklings bibliotek for Wmsound
 Summary(pl):	Pliki nag³ówkowe dla Wmsounda
 Group:		X11/Development/Libraries
-Group(de):	X11/Entwicklung/Libraries
-Group(es):	X11/Desarrollo/Bibliotecas
-Group(fr):	X11/Development/Librairies
-Group(pl):	X11/Programowanie/Biblioteki
-Group(pt_BR):	X11/Desenvolvimento/Bibliotecas
-Group(ru):	X11/òÁÚÒÁÂÏÔËÁ/âÉÂÌÉÏÔÅËÉ
-Group(uk):	X11/òÏÚÒÏÂËÁ/â¦ÂÌ¦ÏÔÅËÉ
 Requires:	X11/%{name} = %{version}
 
 %description devel
