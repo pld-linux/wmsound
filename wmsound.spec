@@ -10,7 +10,9 @@ Release:	1
 License:	GPL v2+
 Group:		X11/Window Managers/Tools
 Source0:	ftp://shadowmere.student.utwente.nl/pub/WindowMaker/%{name}-%{version}.tar.gz
+# Source0-md5:	86f9b19ca0ca1daa072d76d02943dd3e
 Source1:	wmsdefault.tar.gz
+# Source1-md5:	bec32117f9c7ef1f056e96bc8fefae9a
 Source2:	%{name}-soundset
 Patch0:		%{name}-config.patch
 Patch1:		%{name}-ComplexProgramTargetNoMan.patch
