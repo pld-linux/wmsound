@@ -108,6 +108,7 @@ Bibliotecas para construir aplicações com wmsound.
 %patch1 -p1
 %patch2 -p0
 
+sed -i -e "s#LIB_INST\ =.*#LIB_INST = /%{_lib}#" lib/Imakefile
 mkdir config
 cd config
 tar xzf %{SOURCE1}
@@ -122,12 +123,13 @@ xmkmf -a
 
 %install
 rm -rf $RPM_BUILD_ROOT
-install -d $RPM_BUILD_ROOT%{_datadir}/WindowMaker/{Defaults,Sounds,SoundSets}
+install -d $RPM_BUILD_ROOT%{_datadir}/WindowMaker/{Sounds,SoundSets}
+install -d $RPM_BUILD_ROOT%{_sysconfdir}/WindowMaker/WMSound
 
 ./Install
 %{__make} install DESTDIR=$RPM_BUILD_ROOT%{_prefix}
 
-install config/WMSound $RPM_BUILD_ROOT%{_datadir}/WindowMaker/Defaults
+install config/WMSound $RPM_BUILD_ROOT%{_sysconfdir}/WindowMaker/WMSound
 install %{SOURCE2} $RPM_BUILD_ROOT%{_datadir}/WindowMaker/SoundSets/Default
 install config/Sounds/*.wav $RPM_BUILD_ROOT%{_datadir}/WindowMaker/Sounds
 
@@ -141,7 +143,7 @@ rm -rf $RPM_BUILD_ROOT
 %attr(755,root,root) %{_bindir}/nmaker
 %attr(755,root,root) %{_bindir}/getsounds
 %attr(755,root,root) %{_bindir}/setsounds
-%config(noreplace) %verify(not size mtime md5) %{_datadir}/WindowMaker/Defaults/WMSound
+%config(noreplace) %verify(not size mtime md5) %{_sysconfdir}/WindowMaker/WMSound
 
 %files data
 %defattr(644,root,root,755)
