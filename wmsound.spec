@@ -10,10 +10,11 @@ License:	GPL
 Group:		X11/Window Managers/Tools
 Group(de):	X11/Fenstermanager/Werkzeuge
 Group(pl):	X11/Zarz±dcy Okien/Narzêdzia
-Source0:	http://www.frontiernet.net/~southgat/wmsound/download/%{name}-%{version}.tar.gz
+Source0:	ftp://shadowmere.student.utwente.nl/pub/WindowMaker/%{name}-%{version}.tar.gz
 Source1:	wmsdefault.tar.gz
 Source2:	%{name}-soundset
 Patch0:		%{name}-config.patch
+# not active
 URL:		http://www.frontiernet.net/~southgat/wmsound/
 BuildRequires:	libPropList-devel >= 0.8.3
 BuildRequires:	XFree86-devel
@@ -112,7 +113,7 @@ rm -rf $RPM_BUILD_ROOT
 
 %files
 %defattr(644,root,root,755)
-%doc {AUTHORS,COPYING,ChangeLog,NEWS}.gz 
+%doc *.gz 
 %attr(755,root,root) %{_bindir}/%{name}
 %attr(755,root,root) %{_bindir}/nmaker
 %attr(755,root,root) %{_bindir}/getsounds
