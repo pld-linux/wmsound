@@ -17,7 +17,7 @@ URL:		http://www.frontiernet.net/~southgat/wmsound/
 BuildPrereq:	libPropList-devel >= 0.8.3
 BuildPrereq:	XFree86-devel
 Requires:   	WindowMaker
-Buildroot:  	/tmp/%{name}-%{version}-root
+BuildRoot:	/tmp/%{name}-%{version}-root
 
 %define _prefix	/usr/X11R6
 
