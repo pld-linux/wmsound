@@ -25,6 +25,7 @@ BuildRequires:	esound-devel
 Requires:	WindowMaker
 Requires:	esound
 Provides:	wmsoundserver
+Obsoletes:	wmsoundserver
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 
