@@ -41,8 +41,8 @@ Wmsound jest serwerem d¼wiêku dla WindowMaker'a. Aktualnie obs³uguje
 pliki .wav w formacie 8 i 16 bitowym.
 
 %description -l pt_BR
-O wmsound é o servidor de som para o Window Maker,
-atualmente suporta arquivos .wav de 8 ou 16 bits.
+O wmsound é o servidor de som para o Window Maker, atualmente suporta
+arquivos .wav de 8 ou 16 bits.
 
 %description -l es
 wmsound es el servidor de sonido para Window Maker, actualmente
@@ -68,10 +68,10 @@ Standard datafiler til Wmsound.
 %description data -l pl
 Pliki z danymi dla Wmsound.
 
-%description -l pt_BR data
+%description data -l pt_BR
 Os dados padrão para o wmsound.
 
-%description -l es data
+%description data -l es
 Los datos predeterminados para wmsound.
 
 %package devel
@@ -90,10 +90,10 @@ Wmsound biblioteket samt «headerfilen»
 %description devel -l pl
 Pliki nag³ówkowe i biblioteki dla Wmsounda.
 
-%description -l pt_BR devel
+%description devel -l pt_BR
 Bibliotecas para construir aplicações com wmsound.
 
-%description -l es devel
+%description devel -l es
 Bibliotecas y archivos de inclusión, para que puedas desarrollar
 aplicaciones que usen el servidor de sonido wmsound.
 
@@ -132,7 +132,7 @@ rm -rf $RPM_BUILD_ROOT
 
 %files
 %defattr(644,root,root,755)
-%doc *.gz 
+%doc *.gz
 %attr(755,root,root) %{_bindir}/%{name}
 %attr(755,root,root) %{_bindir}/nmaker
 %attr(755,root,root) %{_bindir}/getsounds
