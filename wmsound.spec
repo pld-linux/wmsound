@@ -5,7 +5,7 @@ Summary(no):	Window Maker lydtjener.
 Summary(pl):	Serwer d¼wiêku dla WindowMaker'a
 Name:		wmsound
 Version:	0.9.4
-Release:	2
+Release:	3
 Copyright:	GPL
 Group:		X11/Window Managers/Tools
 Group(pl):	X11/Zarz±dcy Okien/Narzêdzia
@@ -18,6 +18,8 @@ BuildPrereq:	libPropList-devel >= 0.8.3
 BuildPrereq:	XFree86-devel
 Requires:   	WindowMaker
 Buildroot:  	/tmp/%{name}-%{version}-root
+
+%define _prefix         /usr/X11R6
 
 %description
 Wmsound is the sound server for Window Maker, it currently supports 8 or 16
@@ -79,26 +81,24 @@ Pliki nag³ówkowe i biblioteki dla Wmsound'a.
 
 mkdir config
 cd config
-tar xzf $RPM_SOURCE_DIR/wmsdefault.tar.gz
+tar xzf %{SOURCE1}
 
 %build
 xmkmf -a
 
 make all CDEBUGFLAGS="$RPM_OPT_FLAGS -ffast-math" \
 	CXXDEBUGFLAGS="$RPM_OPT_FLAGS -ffast-math" \
-	PREFIX=/usr/X11R6
+	PREFIX=%{_prefix}
 
 %install
 rm -rf $RPM_BUILD_ROOT
 
 ./Install
-make install DESTDIR="$RPM_BUILD_ROOT/usr/X11R6"
-install -d $RPM_BUILD_ROOT/usr/X11R6/share/WindowMaker/{Defaults,Sounds,SoundSets}
-install config/WMSound $RPM_BUILD_ROOT/usr/X11R6/share/WindowMaker/Defaults
-install $RPM_SOURCE_DIR/wmsound-soundset \
-	$RPM_BUILD_ROOT/usr/X11R6/share/WindowMaker/SoundSets/Default
-install config/Sounds/*.wav \
-	$RPM_BUILD_ROOT/usr/X11R6/share/WindowMaker/Sounds
+make install DESTDIR=$RPM_BUILD_ROOT%{_prefix}
+install -d $RPM_BUILD_ROOT%{_datadir}/WindowMaker/{Defaults,Sounds,SoundSets}
+install config/WMSound $RPM_BUILD_ROOT%{_datadir}/WindowMaker/Defaults
+install %{SOURCE2} $RPM_BUILD_ROOT%{_datadir}/WindowMaker/SoundSets/Default
+install config/Sounds/*.wav $RPM_BUILD_ROOT%{_datadir}/WindowMaker/Sounds
 
 gzip -9nf AUTHORS COPYING ChangeLog NEWS
 
@@ -109,25 +109,31 @@ rm -rf $RPM_BUILD_ROOT
 %defattr(644,root,root,755)
 %doc {AUTHORS,COPYING,ChangeLog,NEWS}.gz 
 %doc patches
-%attr(755,root,root) /usr/X11R6/bin/wmsound
-%attr(755,root,root) /usr/X11R6/bin/nmaker
-%attr(755,root,root) /usr/X11R6/bin/getsounds
-%attr(755,root,root) /usr/X11R6/bin/setsounds
+%attr(755,root,root) %{_bindir}/%{name}
+%attr(755,root,root) %{_bindir}/nmaker
+%attr(755,root,root) %{_bindir}/getsounds
+%attr(755,root,root) %{_bindir}/setsounds
 
 %files data
 %defattr(644,root,root,755)
-%dir /usr/X11R6/share/WindowMaker/Sounds
-%dir /usr/X11R6/share/WindowMaker/SoundSets
-/usr/X11R6/share/WindowMaker/Sounds/*.wav
-%config %verify(not size mtime md5) /usr/X11R6/share/WindowMaker/SoundSets/Default
-%config %verify(not size mtime md5) /usr/X11R6/share/WindowMaker/Defaults/WMSound
+%dir %{_datadir}/WindowMaker/Sounds
+%dir %{_datadir}/WindowMaker/SoundSets
+%{_datadir}/WindowMaker/Sounds/*.wav
+%config %verify(not size mtime md5) %{_datadir}/WindowMaker/SoundSets/Default
+%config %verify(not size mtime md5) %{_datadir}/WindowMaker/Defaults/WMSound
 
 %files devel
 %defattr(644,root,root,755)
-/usr/X11R6/include/*.h
-/usr/X11R6/lib/*.a
+%{_includedir}/*.h
+%{_libdir}/*.a
 
 %changelog
+* Mon May 17 1999 Piotr Czerwiñski <pius@pld.org.pl>
+  [0.9.4-3]
+- added using more rpm macros,
+- minor changes,
+- package is FHS 2.0 compliant.
+
 * Tue Apr 20 1999 Piotr Czerwiñski <pius@pld.org.pl>
   [0.9.4-2]
 - added -ffast-math to compiler options,
