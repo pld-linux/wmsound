@@ -61,10 +61,10 @@
  (echo "{";\
  echo "  SoundPath = (\"~/GNUstep/Library/WindowMaker/Sounds\",";\
 -echo "              \"/usr/local/share/WindowMaker/Sounds\");";\
-+echo "              \"/usr/X11R6/share/WindowMaker/Sounds\");";\
++echo "              \"/usr/share/WindowMaker/Sounds\");";\
  echo "  SoundSetPath = (\"~/GNUstep/Library/WindowMaker/SoundSets\",";\
 -echo "              \"/usr/local/share/WindowMaker/SoundSets\");";\
-+echo "              \"/usr/X11R6/share/WindowMaker/SoundSets\");";\
++echo "              \"/usr/share/WindowMaker/SoundSets\");";\
  echo "  Device = $DEVICE;";\
  echo "  AppExit = appexit.wav;";\
  echo "  AppStart = appstart.wav;";\
