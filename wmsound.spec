@@ -86,7 +86,7 @@ tar xzf %{SOURCE1}
 %build
 xmkmf -a
 
-make all \
+%{__make} all \
 	CDEBUGFLAGS="$RPM_OPT_FLAGS -ffast-math" \
 	CXXDEBUGFLAGS="$RPM_OPT_FLAGS -ffast-math" \
 	PREFIX=%{_prefix}
@@ -96,7 +96,7 @@ rm -rf $RPM_BUILD_ROOT
 install -d $RPM_BUILD_ROOT%{_datadir}/WindowMaker/{Defaults,Sounds,SoundSets}
 
 ./Install
-make install DESTDIR=$RPM_BUILD_ROOT%{_prefix}
+%{__make} install DESTDIR=$RPM_BUILD_ROOT%{_prefix}
 
 install config/WMSound $RPM_BUILD_ROOT%{_datadir}/WindowMaker/Defaults
 install %{SOURCE2} $RPM_BUILD_ROOT%{_datadir}/WindowMaker/SoundSets/Default
