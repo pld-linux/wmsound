@@ -19,7 +19,7 @@ BuildRequires:	XFree86-devel
 Requires:   	WindowMaker
 BuildRoot:	/tmp/%{name}-%{version}-root
 
-%define _prefix	/usr/X11R6
+%define 	_prefix		/usr/X11R6
 
 %description
 Wmsound is the sound server for Window Maker, it currently supports 8 or 16
