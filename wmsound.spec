@@ -3,6 +3,8 @@ Summary:	Window Maker sound server
 Summary(fr):	Serveur de son de Window Maker
 Summary(no):	Window Maker lydtjener
 Summary(pl):	Serwer d¼wiêku dla WindowMaker'a
+Summary(pt_BR):	Servidor de som do Window Maker
+Summary(es):	Serveur de son de WindowMaker
 Name:		wmsound
 Version:	0.9.4
 Release:	3
@@ -39,6 +41,14 @@ og 16 bit .wav filer.
 Wmsound jest serwerem d¼wiêku dla WindowMaker'a. Aktualnie obs³uguje
 pliki .wav w formacie 8 i 16 bitowym.
 
+%description -l pt_BR
+O wmsound é o servidor de som para o Window Maker,
+atualmente suporta arquivos .wav de 8 ou 16 bits.
+
+%description -l es
+wmsound es el servidor de sonido para Window Maker, actualmente
+soporta archivos .wav de 8 ó 16 bits.
+
 %package data
 Summary:	Wmsound data
 Summary(fr):	Données de Wmsound
@@ -61,6 +71,12 @@ Standard datafiler til Wmsound.
 %description data -l pl
 Pliki z danymi dla Wmsound.
 
+%description -l pt_BR data
+Os dados padrão para o wmsound.
+
+%description -l es data
+Los datos predeterminados para wmsound.
+
 %package devel
 Summary:	Wmsound development option
 Summary(no):	Utviklings bibliotek for Wmsound
@@ -78,6 +94,13 @@ Wmsound biblioteket samt «headerfilen»
 
 %description devel -l pl
 Pliki nag³ówkowe i biblioteki dla Wmsounda.
+
+%description -l pt_BR devel
+Bibliotecas para construir aplicações com wmsound.
+
+%description -l es devel
+Bibliotecas y archivos de inclusión, para que puedas desarrollar
+aplicaciones que usen el servidor de sonido wmsound.
 
 %prep
 %setup -q
