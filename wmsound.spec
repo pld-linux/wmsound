@@ -7,7 +7,7 @@ Summary(pt_BR):	Servidor de som do Window Maker
 Summary(es):	Serveur de son de WindowMaker
 Name:		wmsound
 Version:	0.9.4
-Release:	3
+Release:	4
 License:	GPL
 Group:		X11/Window Managers/Tools
 Group(de):	X11/Fenstermanager/Werkzeuge
