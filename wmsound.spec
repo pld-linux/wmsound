@@ -5,7 +5,7 @@ Summary(no):	Window Maker lydtjener.
 Summary(pl):	Serwer d¼wiêku dla WindowMaker'a
 Name:		wmsound
 Version:	0.9.4
-Release:	1
+Release:	2
 Copyright:	GPL
 Group:		X11/Window Managers/Tools
 Group(pl):	X11/Zarz±dcy Okien/Narzêdzia
@@ -13,9 +13,9 @@ Source0:	http://www.frontiernet.net/~southgat/wmsound/download/%{name}-%{version
 Source1:	wmsdefault.tar.gz
 Source2:	wmsound-soundset
 Patch:      	wmsound-config.patch
+BuildPrereq:	libPropList-devel >= 0.8.3
+BuildPrereq:	XFree86-devel
 Requires:   	WindowMaker
-Requires:   	libjpeg
-Requires:   	libpng
 Buildroot:  	/tmp/%{name}-%{version}-root
 
 %description
@@ -83,8 +83,8 @@ tar xzf $RPM_SOURCE_DIR/wmsdefault.tar.gz
 %build
 xmkmf -a
 
-make all CDEBUGFLAGS="$RPM_OPT_FLAGS" \
-	CXXDEBUGFLAGS="$RPM_OPT_FLAGS" \
+make all CDEBUGFLAGS="$RPM_OPT_FLAGS -ffast-math" \
+	CXXDEBUGFLAGS="$RPM_OPT_FLAGS -ffast-math" \
 	PREFIX=/usr/X11R6
 
 %install
@@ -129,6 +129,12 @@ rm -rf $RPM_BUILD_ROOT
 /usr/X11R6/lib/*.a
 
 %changelog
+* Tue Apr 20 1999 Piotr Czerwiñski <pius@pld.org.pl>
+  [0.9.4-2]
+- added -ffast-math to compiler options,
+- added BuildPrereq: libPropList-devel >= 0.8.3, XFree86-devel,
+- recompiled on rpm 3.
+
 * Thu Apr  1 1999 Piotr Czerwiñski <pius@pld.org.pl>
   [0.9.4-1]
 - updated to 0.9.4,
