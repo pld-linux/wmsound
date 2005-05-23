@@ -20,8 +20,9 @@ Patch2:		%{name}-esd.patch
 # not active
 URL:		http://www.frontiernet.net/~southgat/wmsound/
 BuildRequires:	XFree86-devel
-BuildRequires:	libPropList-devel >= 0.8.3
 BuildRequires:	esound-devel
+BuildRequires:	libPropList-devel >= 0.8.3
+BuildRequires:	sed >= 4.0
 Requires:	WindowMaker
 Requires:	esound
 Provides:	wmsoundserver
@@ -128,7 +129,8 @@ install -d $RPM_BUILD_ROOT%{_datadir}/WindowMaker/{Sounds,SoundSets} \
 	$RPM_BUILD_ROOT%{_sysconfdir}/WindowMaker
 
 ./Install
-%{__make} install DESTDIR=$RPM_BUILD_ROOT%{_prefix}
+%{__make} install \
+	DESTDIR=$RPM_BUILD_ROOT%{_prefix}
 
 install config/WMSound $RPM_BUILD_ROOT%{_sysconfdir}/WindowMaker
 install %{SOURCE2} $RPM_BUILD_ROOT%{_datadir}/WindowMaker/SoundSets/Default
