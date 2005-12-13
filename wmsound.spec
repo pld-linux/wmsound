@@ -146,12 +146,12 @@ rm -rf $RPM_BUILD_ROOT
 %attr(755,root,root) %{_bindir}/nmaker
 %attr(755,root,root) %{_bindir}/getsounds
 %attr(755,root,root) %{_bindir}/setsounds
-%config(noreplace) %verify(not size mtime md5) %{_sysconfdir}/WindowMaker/WMSound
+%config(noreplace) %verify(not md5 mtime size) %{_sysconfdir}/WindowMaker/WMSound
 
 %files data
 %defattr(644,root,root,755)
 %{_datadir}/WindowMaker/Sounds/*.wav
-%config(noreplace) %verify(not size mtime md5) %{_datadir}/WindowMaker/SoundSets/Default
+%config(noreplace) %verify(not md5 mtime size) %{_datadir}/WindowMaker/SoundSets/Default
 
 %files devel
 %defattr(644,root,root,755)
