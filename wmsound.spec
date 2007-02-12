@@ -1,9 +1,9 @@
 # %define snddevice /dev/dsp
 Summary:	Window Maker sound server
-Summary(fr.UTF-8):   Serveur de son de Window Maker
-Summary(nb.UTF-8):   Window Maker lydtjener
-Summary(pl.UTF-8):   Serwer dźwięku dla WindowMakera
-Summary(pt_BR.UTF-8):   Servidor de som do Window Maker
+Summary(fr.UTF-8):	Serveur de son de Window Maker
+Summary(nb.UTF-8):	Window Maker lydtjener
+Summary(pl.UTF-8):	Serwer dźwięku dla WindowMakera
+Summary(pt_BR.UTF-8):	Servidor de som do Window Maker
 Name:		wmsound
 Version:	0.9.5
 Release:	3
@@ -57,9 +57,9 @@ arquivos .WAV de 8 ou 16 bits.
 
 %package data
 Summary:	Wmsound data
-Summary(fr.UTF-8):   Données de Wmsound
-Summary(nb.UTF-8):   Data til Wmsound
-Summary(pl.UTF-8):   Pliki z danymi dla Wmsound
+Summary(fr.UTF-8):	Données de Wmsound
+Summary(nb.UTF-8):	Data til Wmsound
+Summary(pl.UTF-8):	Pliki z danymi dla Wmsound
 Group:		X11/Window Managers/Tools
 Requires:	wmsoundserver
 Obsoletes:	WSoundServer-data
@@ -84,8 +84,8 @@ Os dados padrão para o wmsound.
 
 %package devel
 Summary:	Wmsound development option
-Summary(nb.UTF-8):   Utviklings bibliotek for Wmsound
-Summary(pl.UTF-8):   Pliki nagłówkowe dla Wmsounda
+Summary(nb.UTF-8):	Utviklings bibliotek for Wmsound
+Summary(pl.UTF-8):	Pliki nagłówkowe dla Wmsounda
 Group:		X11/Development/Libraries
 
 %description devel
