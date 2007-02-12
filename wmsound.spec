@@ -1,9 +1,9 @@
 # %define snddevice /dev/dsp
 Summary:	Window Maker sound server
-Summary(fr):	Serveur de son de Window Maker
-Summary(nb):	Window Maker lydtjener
-Summary(pl):	Serwer d¼wiêku dla WindowMakera
-Summary(pt_BR):	Servidor de som do Window Maker
+Summary(fr.UTF-8):   Serveur de son de Window Maker
+Summary(nb.UTF-8):   Window Maker lydtjener
+Summary(pl.UTF-8):   Serwer dÅºwiÄ™ku dla WindowMakera
+Summary(pt_BR.UTF-8):   Servidor de som do Window Maker
 Name:		wmsound
 Version:	0.9.5
 Release:	3
@@ -35,31 +35,31 @@ BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 Wmsound is the sound server for Window Maker, it currently supports 8
 or 16 bit .WAV files.
 
-%description -l es
+%description -l es.UTF-8
 wmsound es el servidor de sonido para Window Maker, actualmente
-soporta archivos .WAV de 8 ó 16 bits.
+soporta archivos .WAV de 8 Ã³ 16 bits.
 
-%description -l fr
+%description -l fr.UTF-8
 Wmsound est le serveur de son pour Window Maker, il supporte
 actuellement les fichiers son .WAV 8 ou 16 bit.
 
-%description -l nb
-Wmsound er en lydtjener for Window Maker, som for øyeblikket støtter 8
+%description -l nb.UTF-8
+Wmsound er en lydtjener for Window Maker, som for Ã¸yeblikket stÃ¸tter 8
 og 16 bit .WAV filer.
 
-%description -l pl
-Wmsound jest serwerem d¼wiêku dla WindowMaker'a. Aktualnie obs³uguje
+%description -l pl.UTF-8
+Wmsound jest serwerem dÅºwiÄ™ku dla WindowMaker'a. Aktualnie obsÅ‚uguje
 pliki .WAV w formacie 8 i 16 bitowym.
 
-%description -l pt_BR
-O wmsound é o servidor de som para o Window Maker, atualmente suporta
+%description -l pt_BR.UTF-8
+O wmsound Ã© o servidor de som para o Window Maker, atualmente suporta
 arquivos .WAV de 8 ou 16 bits.
 
 %package data
 Summary:	Wmsound data
-Summary(fr):	Données de Wmsound
-Summary(nb):	Data til Wmsound
-Summary(pl):	Pliki z danymi dla Wmsound
+Summary(fr.UTF-8):   DonnÃ©es de Wmsound
+Summary(nb.UTF-8):   Data til Wmsound
+Summary(pl.UTF-8):   Pliki z danymi dla Wmsound
 Group:		X11/Window Managers/Tools
 Requires:	wmsoundserver
 Obsoletes:	WSoundServer-data
@@ -67,42 +67,42 @@ Obsoletes:	WSoundServer-data
 %description data
 The standard Wmsound data.
 
-%description data -l es
+%description data -l es.UTF-8
 Los datos predeterminados para wmsound.
 
-%description data -l fr
-Les données standard de Wmsound.
+%description data -l fr.UTF-8
+Les donnÃ©es standard de Wmsound.
 
-%description data -l nb
+%description data -l nb.UTF-8
 Standard datafiler til Wmsound.
 
-%description data -l pl
+%description data -l pl.UTF-8
 Pliki z danymi dla Wmsound.
 
-%description data -l pt_BR
-Os dados padrão para o wmsound.
+%description data -l pt_BR.UTF-8
+Os dados padrÃ£o para o wmsound.
 
 %package devel
 Summary:	Wmsound development option
-Summary(nb):	Utviklings bibliotek for Wmsound
-Summary(pl):	Pliki nag³ówkowe dla Wmsounda
+Summary(nb.UTF-8):   Utviklings bibliotek for Wmsound
+Summary(pl.UTF-8):   Pliki nagÅ‚Ã³wkowe dla Wmsounda
 Group:		X11/Development/Libraries
 
 %description devel
 The Wmsound library and header file
 
-%description devel -l es
-Bibliotecas y archivos de inclusión, para que puedas desarrollar
+%description devel -l es.UTF-8
+Bibliotecas y archivos de inclusiÃ³n, para que puedas desarrollar
 aplicaciones que usen el servidor de sonido wmsound.
 
-%description devel -l nb
-Wmsound biblioteket samt «headerfilen»
+%description devel -l nb.UTF-8
+Wmsound biblioteket samt Â«headerfilenÂ»
 
-%description devel -l pl
-Pliki nag³ówkowe i biblioteki dla Wmsounda.
+%description devel -l pl.UTF-8
+Pliki nagÅ‚Ã³wkowe i biblioteki dla Wmsounda.
 
-%description devel -l pt_BR
-Bibliotecas para construir aplicações com wmsound.
+%description devel -l pt_BR.UTF-8
+Bibliotecas para construir aplicaÃ§Ãµes com wmsound.
 
 %prep
 %setup -q
